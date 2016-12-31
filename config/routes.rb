@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users, except: [ :destroy, :index ]
+  resources :calendars
 end
