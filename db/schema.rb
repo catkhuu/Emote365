@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161231024047) do
+ActiveRecord::Schema.define(version: 20161231030800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name",       default: "My calendar"
+    t.string   "type",                               null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["user_id"], name: "index_calendars_on_user_id", using: :btree
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.integer  "calendar_id"
+    t.string   "image_url",    null: false
+    t.string   "location",     null: false
+    t.string   "trend_of_day"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["calendar_id"], name: "index_days_on_calendar_id", using: :btree
+  end
+
+  create_table "trends", force: :cascade do |t|
+    t.string   "hashtag",    null: false
+    t.integer  "day_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_trends_on_day_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
