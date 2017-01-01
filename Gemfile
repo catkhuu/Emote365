@@ -20,9 +20,17 @@ gem 'better_errors'
 
 gem 'dotenv-rails'
 
-gem 'oauth'
+gem 'oauth' # FIXME: may not need this gem if using omniauth
 
-gem 'twitter'
+gem 'therubyracer'
+
+gem 'devise'
+
+gem 'omniauth'
+
+gem 'omniauth-twitter'
+
+gem 'twitter' 
 
 gem 'materialize-sass'
 
@@ -32,11 +40,8 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console  
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'faker'
