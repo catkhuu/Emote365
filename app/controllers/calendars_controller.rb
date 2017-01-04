@@ -1,5 +1,17 @@
 class CalendarsController < ApplicationController
   def index
-    render :new_calendar_path
+    @user = current_user
+    if @user
+      @calendars = @user.calendars
+      render calendars_path
+    else
+      require_login
+    end
+  end
+
+  def new
+  end
+
+  def create
   end
 end
