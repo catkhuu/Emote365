@@ -1,17 +1,16 @@
 class CalendarsController < ApplicationController
   def index
-    @user = current_user
-    if @user
-      @calendars = @user.calendars
-      render calendars_path
-    else
-      require_login
-    end
+    @calendars = current_user.calendars
   end
 
   def new
   end
 
   def create
+    #if !user.calendars
+    # update user profile
+    # create calendar
+  else
+
   end
 end

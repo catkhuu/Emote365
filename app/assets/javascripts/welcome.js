@@ -22,7 +22,7 @@ function showPosition(position) {
       } else {
         var woeid = results.woeid;
       }
-      console.log(woeid);
+      woeid
       // $.ajax({
       //   url: '/calendars',
       //   method: 'post',
@@ -34,5 +34,6 @@ function showPosition(position) {
     $.getJSON('http://query.yahooapis.com/v1/public/yql', {'q': 'select * from geo.places where text="'+ city +'"', 'format': 'json'}, handleResults);
   });
 };
-
-getLocation();
+$(document).ready(){
+  getLocation();
+}
