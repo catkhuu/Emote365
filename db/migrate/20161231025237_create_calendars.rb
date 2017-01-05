@@ -3,7 +3,6 @@ class CreateCalendars < ActiveRecord::Migration[5.0]
     create_table :calendars do |t|
       t.references :user
       t.string :name, default: 'My calendar'
-      t.string :type, null: false
 
       t.timestamps(null: false)
     end

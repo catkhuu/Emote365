@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20170104182810) do
   create_table "calendars", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name",       default: "My calendar"
-    t.string   "type",                               null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["user_id"], name: "index_calendars_on_user_id", using: :btree
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170104182810) do
 
   create_table "days", force: :cascade do |t|
     t.integer  "calendar_id"
-    t.string   "image_url",    null: false
+    t.string   "image_url"
     t.string   "location",     null: false
     t.string   "trend_of_day"
     t.datetime "created_at",   null: false

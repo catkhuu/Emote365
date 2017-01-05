@@ -7,13 +7,12 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    p '=============================='
-    p params.keys
-    binding.pry
     @user = current_user
-    if @user.calendars.empty?
+    if @user.email == ''
       @user.update_attribute(:email, params[:user][:email])
-      Calendar.create(user_id: current_user.id type: 'dynamic')
+      Calendar.create(user_id: current_user.id)
+      tweets = get_tweets(params[:location])
+      binding.pry
     else
 
     end
@@ -29,13 +28,13 @@ class CalendarsController < ApplicationController
 
   def get_tweets(weoid)
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV[TWITTER_CONSUMER_KEY]
-      config.consumer_secret     = ENV[TWITTER_CONSUMER_SECRET]
-      config.access_token        = ENV[TWITTER_ACCESS_TOKEN]
-      config.access_token_secret = ENV[TWITTER_ACCESS_TOKEN_SECRET]
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
 
-    trends = client.trends(id=2459115, options={}).attr[:trends]
+    trends = client.trends(id=2459115, options={}).attrs[:trends]
     trends.map {|a| a[:name]}.join(' ');
   end
 
@@ -46,7 +45,7 @@ class CalendarsController < ApplicationController
     # Request headers
     request['Content-Type'] = 'application/json'
     # Request headers
-    request['Ocp-Apim-Subscription-Key'] = ENV[MICROSOFT_KEY]
+    request['Ocp-Apim-Subscription-Key'] = ENV["MICROSOFT_KEY"]
     # Request body
     request.body = {
       "documents": [
@@ -75,7 +74,7 @@ class CalendarsController < ApplicationController
   end
 
   def get_image(sentiment)
-    response = open('https://pixabay.com/api/?key='+ ENV[PIXA_KEY] +'&q=' + sentiment + '&image_type=photo').read
+    response = open('https://pixabay.com/api/?key='+ ENV["PIXA_KEY"] +'&q=' + sentiment + '&image_type=photo').read
     image = JSON.parse(response)
     image["hits"].shuffle.sample["webformatURL"]
   end
