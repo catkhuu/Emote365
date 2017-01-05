@@ -65,9 +65,9 @@ class CalendarsController < ApplicationController
 
 
     score = JSON.parse(response.body)["documents"][0]["score"]
-    if score < .33
+    if score < 0.33
       'sad'
-    elsif score < .66
+    elsif score < 0.66
       'ok'
     else
       'happy'
