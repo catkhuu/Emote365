@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :calendars
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:twitter], :authentication_keys => [:uid, :username]

@@ -30,7 +30,7 @@ gem 'omniauth'
 
 gem 'omniauth-twitter'
 
-gem 'twitter' 
+gem 'twitter'
 
 gem 'materialize-sass'
 
