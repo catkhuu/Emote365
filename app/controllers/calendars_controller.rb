@@ -12,9 +12,8 @@ class CalendarsController < ApplicationController
     binding.pry
     @user = current_user
     if @user.calendars.empty?
-      binding.pry
       @user.update_attribute(:email, params[:user][:email])
-      # Calendar.create(user_id: current_user.id type: 'dynamic')
+      Calendar.create(user_id: current_user.id type: 'dynamic')
     else
 
     end
