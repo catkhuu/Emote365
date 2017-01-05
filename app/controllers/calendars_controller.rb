@@ -21,6 +21,7 @@ class CalendarsController < ApplicationController
         Trend.create(hashtag: hashtag["name"], )
       end
     else
+      @calendar = Calendar.find_by(user_id: current_user.id)
     end
     #   params[:location] =
     # #  update user profile
