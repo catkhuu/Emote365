@@ -9,11 +9,12 @@ class CalendarsController < ApplicationController
   def create
     p '=============================='
     p params.keys
+    binding.pry
     @user = current_user
-    if !@user.calendars
-      current_user.update(email: params[:user][:email])
+    if @user.calendars.empty?
+      binding.pry
+      @user.update_attribute(:email, params[:user][:email])
       # Calendar.create(user_id: current_user.id type: 'dynamic')
-
     else
 
     end
