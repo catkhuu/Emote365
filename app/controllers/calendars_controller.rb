@@ -64,10 +64,19 @@ class CalendarsController < ApplicationController
 
 
 
-    JSON.parse(response.body)["documents"][0]["score"]
+    score = JSON.parse(response.body)["documents"][0]["score"]
+    if score < .33
+      'sad'
+    elsif score < .66
+      'ok'
+    else
+      'happy'
+    end
   end
 
-  def get_image()
-
+  def get_image(sentiment)
+    response = open('https://pixabay.com/api/?key='+ ENV[PIXA_KEY] +'&q=' + sentiment + '&image_type=photo').read
+    image = JSON.parse(response)
+    image["hits"].shuffle.sample["webformatURL"]
   end
 end
