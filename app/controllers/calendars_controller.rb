@@ -34,12 +34,13 @@ class CalendarsController < ApplicationController
       config.access_token        = ENV[TWITTER_ACCESS_TOKEN]
       config.access_token_secret = ENV[TWITTER_ACCESS_TOKEN_SECRET]
     end
-    bunding.pry
-    client.trends(id=2459115, options={})
+
+    trends = client.trends(id=2459115, options={}).attr[:trends]
+    trends.map {|a| a[:name]}.join(' ');
   end
 
-  def get_emotions()
-
+  def get_emotions(text)
+    
   end
 
   def get_image()
