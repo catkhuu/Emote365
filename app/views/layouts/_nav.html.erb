@@ -2,10 +2,8 @@
   <%= link_to "home", root_path %>
   <% if user_signed_in? %>
     <a href="#">profile</a>
-
     <%= link_to "sign out", destroy_user_session_path, method: :delete %>
   <% else %>
-    <%= user_session %>
     <%= link_to "sign in", new_user_session_path, method: :get %>
     <%= link_to "new account", new_user_registration_path, method: :get %>
   <% end %>
