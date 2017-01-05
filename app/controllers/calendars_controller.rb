@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class CalendarsController < ApplicationController
   def index
     @calendars = current_user.calendars
@@ -12,16 +14,18 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     current_user
     if current_user.email == ''
       current_user.update_attribute(:email, params[:user][:email])
       @calendar = Calendar.create(user_id: current_user.id)
       hashtags = get_tweets(params[:location])
       sentiment = get_emotions(hashtags.map {|a| a[:name]}.join(' '))
-      require 'open-uri'
       image_url = get_image(sentiment)
       @day = Day.create(calendar: @calendar, image_url: image_url, location: params[:location].to_s)
+
+      # FIXME
+      # consider rather then save every hashtag, store them all as a string
 
       hashtags.each do |hashtag|
         Trend.create(hashtag: hashtag[:name], day: @day )
@@ -35,7 +39,7 @@ class CalendarsController < ApplicationController
     # else
     #
     # end
-    binding.pry
+    # binding.pry
     redirect_to calendar_path(@calendar)
   end
 
@@ -55,6 +59,11 @@ class CalendarsController < ApplicationController
     # end
     #
     # trends = client.trends(id=weoid, options={}).attrs[:trends]
+
+    # FIXME
+    # use hardcoded trends for testing
+    # limit to top 10 tweets
+
     trends = [
       {:name=>"#COYS",
       :url=>"http://twitter.com/search?q=%23COYS",

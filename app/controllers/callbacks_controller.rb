@@ -3,7 +3,6 @@ class CallbacksController < Devise::OmniauthCallbacksController
         @user = User.from_omniauth(request.env["omniauth.auth"])
         sign_in @user
         session["warden.user.user.key"][0] = [@user.id]
-        binding.pry
         if @user.email == ''
           render :'welcome/update_email'
         else
