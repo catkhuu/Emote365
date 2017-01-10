@@ -16,7 +16,6 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    binding.pry
     current_user.update_attributes(email: params[:user][:email]) unless current_user.has_email?
     @calendar ||= Calendar.create(user: current_user)
     trending = helpers.top_trends(2459115) # FIXME: limit to top 10 tweets, hard coded woeid
