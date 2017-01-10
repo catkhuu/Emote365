@@ -2,5 +2,5 @@ class Calendar < ApplicationRecord
   belongs_to :user
   has_many :days
 
-  validates :user, :days, presence: true 
+  validates :user, presence: true 
 end
