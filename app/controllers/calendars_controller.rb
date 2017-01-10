@@ -17,8 +17,9 @@ class CalendarsController < ApplicationController
 
   def create
     current_user.update_attributes(email: params[:user][:email]) unless current_user.has_email?
+    # binding.pry
     @calendar ||= Calendar.create(user: current_user)
-    trending = helpers.top_trends(2459115) # FIXME: limit to top 10 tweets, hard coded woeid
+    trending = helpers.top_trends(params[:location]) # FIXME: limit to top 10 tweets
     analysis = helpers.analyze(trending.map { |trend| trend[:name] }.join(' '))
     sentiment = helpers.get_emotions(analysis)
     image_url = helpers.get_image(sentiment)
