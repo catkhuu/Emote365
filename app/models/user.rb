@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :calendars
+  has_many :calendars, dependent: :destroy 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:twitter], :authentication_keys => [:uid, :username]
@@ -12,5 +12,9 @@ class User < ApplicationRecord
         user.email = ""
         user.password = Devise.friendly_token[0,20]
       end
+  end
+
+  def has_email?
+    self.email != ""
   end
 end
