@@ -1,10 +1,19 @@
 <nav>
-  <%= link_to "home", root_path %>
-  <% if user_signed_in? %>
-    <a href="#">profile</a>
-    <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "sign in", new_user_session_path, method: :get %>
-    <%= link_to "new account", new_user_registration_path, method: :get %>
-  <% end %>
+  <div class="row end-md">
+    <div class="col-md-1">
+      <%= link_to "home", root_path %>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-8">
+      <% if user_signed_in? %>
+        <a href="#">profile</a>
+        <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "sign in", new_user_session_path, method: :get %>
+        <%= link_to "new account", new_user_registration_path, method: :get %>
+      <% end %>
+    </div>
+  </div>
 </nav>

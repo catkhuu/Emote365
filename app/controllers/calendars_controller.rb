@@ -1,4 +1,4 @@
-  require 'open-uri'
+require 'open-uri'
 
 class CalendarsController < ApplicationController
   before_action :find_and_ensure_calendar, only: [:create, :show]
