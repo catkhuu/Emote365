@@ -1,5 +1,5 @@
 module TwitterHelper
-  
+
   def get_trends(weoid)
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
@@ -8,7 +8,7 @@ module TwitterHelper
       config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
 
-    trends = client.trends(id=2459115, options={}).attrs[:trends]
+    trends = client.trends(id=weoid, options={}).attrs[:trends]
   end
 
   def top_trends(weoid)

@@ -24,6 +24,7 @@ module SentimentHelper
   end
 
   def get_emotions(analysis)
+    # breakdown into 10 different emotional indicators 
     score = JSON.parse(analysis.body)["documents"][0]["score"]
     if score < 0.33
       'sad'
