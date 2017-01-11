@@ -1,20 +1,13 @@
-
-<div class="row center-xs">
-  <div class="xs-col-6">
-    <h1 class="home-heading">Welcome to Emote365!!!</h1>
-  </div>
-</div>
+<h1 class="home-heading">Welcome to Emote365!!!</h1>
 
 <p class="home-description">
-  Emote 365 aims to bring cutting edge technologies such as twitter api and microsoft cognitive services to bring a truly unique and custom experience to the user in form of a <em>calendar</em> based on trending hashtags in your area.
+  Emote 365 aims to utilize cutting edge technologies such as microsoft cognitive services api to bring a truly unique and custom experience to the users in form of a <strong>calendar</strong> based on trending hashtags in your area.
 </p>
 <% if !user_signed_in? %>
-<div class="row center-xs">
-  <div class="col-xs-6 call-to-action">
-    To get started
-    <%= link_to "create an account", new_user_registration_path, method: :get %>
-    or
-    <%= link_to "sign in", new_user_session_path, method: :get %>
-  </div>
-</div>
+<p class="home-description">
+  To get started
+  <%= link_to "create an account", new_user_registration_path, method: :get %>
+  or
+  <%= link_to "sign in", new_user_session_path, method: :get %>
+</p>
 <% end %>
