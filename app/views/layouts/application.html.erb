@@ -3,7 +3,8 @@
   <head>
     <title>Emotions365</title>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Montserrat|Open+Sans+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Montserrat|Cutive+Mono|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" media="screen" title="no title">
     <link rel="shrtcut icon" href="https://www.sdmts.com/sites/default/files/calendar-01.svg">
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -11,10 +12,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render '/layouts/nav' %>
-    <%= yield %>
-    <%= render '/layouts/footer' %>
+    <div id="wrapper">
+      <div id="header">
+        <%= render '/layouts/nav' %>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <%= render '/layouts/footer' %>
+      </div>
+    </div>
   </body>
 </html>
