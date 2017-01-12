@@ -33,9 +33,16 @@ class Calendar extends React.Component {
 
   handleToggle(event){
     event.preventDefault();
-    this.setState({
-      currentDay: null
-    })
+    if(this.state.currentDay){
+      this.setState({
+        currentDay: null
+      })
+    } else {
+      this.setState({
+        currentDay: this.state.days[this.state.days.length - 1]
+      })
+    }
+
   }
 
   updateCurrentDay(newDay){
