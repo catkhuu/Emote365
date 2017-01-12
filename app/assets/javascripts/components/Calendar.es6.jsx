@@ -64,7 +64,7 @@ class Calendar extends React.Component {
         return(
           <div>
             <a href="" onClick={this.handleToggle.bind(this)}>day</a>
-            {this.state.days.map((day,  i) => <div><img className="day-image" src={day.image_url}/></div>)}
+            {this.state.days.map((day,  i) => <DayView updateCurrentDay={this.updateCurrentDay.bind(this)} key={i} day={day}/>)}
           </div>
         )
       }
