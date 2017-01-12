@@ -3,7 +3,8 @@ class Calendar extends React.Component {
     super();
     this.state = {
       days: [],
-      currentDay: null
+      currentDay: null,
+      date: ''
     }
   }
 
@@ -12,8 +13,23 @@ class Calendar extends React.Component {
       days: this.props.days,
       currentDay: this.props.currentDay
     })
+    this.getDate(this.props.currentDay);
   }
 
+  getDate(day){
+    let date = '';
+    $.ajax({
+      url: '/days/date',
+      type: "GET",
+      data: {day_id: day.id}
+    }).done(answer => {
+      this.setState({
+        date: answer
+      })
+    }).fail(function(a,b,c){
+
+    })
+  }
 
   handleToggle(event){
     event.preventDefault();
@@ -26,12 +42,11 @@ class Calendar extends React.Component {
   }
 
   render(){
-    debugger
       if(this.state.currentDay){
         return(
           <div>
             <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar</a>
-            <h1>{this.props.currentDay.created_at}</h1>
+            <h1>{this.state.date}</h1>
             <img src={this.state.currentDay.image_url}/>
           </div>
         )
