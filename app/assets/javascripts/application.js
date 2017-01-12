@@ -12,3 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+$(document).ready(function(){
+  var x = Math.floor(Math.random() * 5) + 1;
+  $('body').css('background-image', "url('assets/background" + x + ".jpg'")
+});
