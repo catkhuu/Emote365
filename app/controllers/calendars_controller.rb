@@ -33,7 +33,7 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @day = @calendar.days.last
+    @days = @calendar.days
     render 'calendars/show'
   end
 
