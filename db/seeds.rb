@@ -15,13 +15,13 @@ images = [
   "http://www.planwallpaper.com/static/images/518169-backgrounds.jpg",
   "http://www.wallpaperscharlie.com/wp-content/uploads/2016/11/Background-Photos-9.jpg",
   "http://www.planwallpaper.com/static/images/824183-green-wallpaper.jpg",
-  "http://wallpaper-gallery.net/images/background/background-8.jpg",
+  "http://www.intrawallpaper.com/static/images/Desktop-Wallpaper-HD5_or6ZJ13.jpg",
   "http://www.wallpaperscharlie.com/wp-content/uploads/2016/11/Background-Photos-8.jpg",
   "http://wallpapercave.com/wp/Ti6qoP7.jpg",
-  "http://7-themes.com/data_images/out/18/6830591-background-pictures.jpg",
-  "http://tophdimgs.com/data_images/wallpapers/11/361710-css-background.jpg",
-  "http://7-themes.com/data_images/out/72/7017449-abstract-colors-background.jpg",
-  "http://7-themes.com/data_images/out/76/7032286-abstract-cool-colors-background.jpg"
+  "http://www.intrawallpaper.com/static/images/303836_pN35c8V.jpg",
+  "https://i.ytimg.com/vi/A7ZkZazfvao/maxresdefault.jpg",
+  "http://cartoonbros.com/wp-content/uploads/2016/08/wallpaper-hd-11-1024x640.jpg",
+  "http://cartoonbros.com/wp-content/uploads/2016/08/wallpaper-hd-16-1024x576.jpg"
 ]
 
 locations = [
@@ -49,6 +49,8 @@ trends = [
   "blah blah blah",
   "beers"
 ]
+
+Day.all.destroy_all
 
 start_time = Time.now
 
