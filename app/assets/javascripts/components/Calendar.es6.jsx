@@ -33,6 +33,9 @@ class Calendar extends React.Component {
 
   handleToggle(event){
     event.preventDefault();
+    this.setState({
+      currentDay: null
+    })
   }
 
   updateCurrentDay(newDay){
@@ -53,10 +56,8 @@ class Calendar extends React.Component {
       } else {
         return(
           <div>
-            {this.state.days.map(function(day, index){
-
-            })}
             <a href="" onClick={this.handleToggle.bind(this)}>day</a>
+            {this.state.days.map((day,  i) => <div><img className="day-image" src={day.image_url}/></div>)}
           </div>
         )
       }
