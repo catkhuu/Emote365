@@ -54,29 +54,25 @@ class Calendar extends React.Component {
   nextDay(){
     let dayId = this.state.currentDay.id;
     let newDay = {};
-    // debugger
     for(var index in this.state.days){
-      // debugger
       if(this.state.days[index].id === dayId + 1){
         newDay = this.state.days[index];
+        this.updateCurrentDay(newDay);
+        this.getDate(newDay);
       }
     }
-    this.updateCurrentDay(newDay);
-    this.getDate(newDay);
   }
 
   previousDay(){
-    // debugger
     let dayId = this.state.currentDay.id;
     let newDay = {};
-    // debugger
     for(var index in this.state.days){
       if(this.state.days[index].id === dayId - 1){
         newDay = this.state.days[index];
+        this.updateCurrentDay(newDay);
+        this.getDate(newDay);
       }
     }
-    this.updateCurrentDay(newDay);
-    this.getDate(newDay);
   }
 
   render(){
