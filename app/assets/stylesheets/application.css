@@ -157,3 +157,8 @@ ul {
 .next {
   right: 0;
 }
+
+.date {
+  color: white;
+  font-family: 'Cutive Mono'
+}
