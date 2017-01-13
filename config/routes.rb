@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'users/logout'
   get '/days/date', to: "days#date"
-
+  
   resources :calendars
 end
