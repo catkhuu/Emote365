@@ -52,7 +52,7 @@ trends = [
 
 Day.all.destroy_all
 
-start_time = Time.now
+start_time = Time.now - 10 * 24 * 60 * 60
 
 10.times do |i|
   Day.create(
@@ -60,6 +60,6 @@ start_time = Time.now
     calendar_id: 1,
     location: locations[i],
     trend_of_day: trends[i],
-    created_at: start_time - i * 24 * 60 * 60
+    created_at: start_time + i * 24 * 60 * 60
   )
 end
