@@ -7,7 +7,7 @@ class DayView extends React.Component {
     render(){
       return(
         <div>
-          <img onClick={this.dayHandler.bind(this)} className="day-image" src={this.props.day.image_url}/>
+          <img onClick={this.dayHandler.bind(this)} className="calendar-image" src={this.props.day.image_url}/>
         </div>
       )
     }

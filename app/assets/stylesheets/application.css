@@ -21,6 +21,8 @@
 
 html,
 body {
+  width: 100%;
+  width-max: 1080;
   margin:0;
   padding:0;
   height:100%;
@@ -36,6 +38,8 @@ body {
 }
 #content {
  	padding-bottom:200px;
+  background-color: red;
+  width: 100%;
 }
 #footer {
  	background: #E5F2C9;
@@ -127,9 +131,30 @@ ul {
   color: rgba(0,0,0, 0.3);
 }
 
-.day-image {
+.calendar-image {
   display: inline-block;
   float: left;
   height: 180px;
   width: 250px;
+}
+
+.day-image {
+  display: block;
+  width: 100%;
+}
+
+.controls {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  top: 140px;
+}
+
+.controls:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+  right: 0;
 }

@@ -51,14 +51,44 @@ class Calendar extends React.Component {
     })
   }
 
+  nextDay(){
+    let dayId = this.state.currentDay.id;
+    let newDay = {};
+    // debugger
+    for(var index in this.state.days){
+      // debugger
+      if(this.state.days[index].id === dayId + 1){
+        newDay = this.state.days[index];
+      }
+    }
+    this.updateCurrentDay(newDay);
+    this.getDate(newDay);
+  }
+
+  previousDay(){
+    // debugger
+    let dayId = this.state.currentDay.id;
+    let newDay = {};
+    // debugger
+    for(var index in this.state.days){
+      if(this.state.days[index].id === dayId - 1){
+        newDay = this.state.days[index];
+      }
+    }
+    this.updateCurrentDay(newDay);
+    this.getDate(newDay);
+  }
+
   render(){
       if(this.state.currentDay){
         return(
           <div>
+            <div onClick={this.previousDay.bind(this)}className="controls previous">Previous</div>
             <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar</a>
             <h1>{this.state.date}</h1>
-            <img src={this.state.currentDay.image_url}/>
-          </div>
+            <img className="day-image" src={this.state.currentDay.image_url}/>
+            <div onClick={this.nextDay.bind(this)} className="controls next">Next</div>
+        </div>
         )
       } else {
         return(
