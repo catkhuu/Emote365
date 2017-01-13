@@ -142,19 +142,32 @@ ul {
 }
 
 .controls {
+  color: rgba(245,255,250,0.2);
   position: absolute;
-  width: 50px;
+  width: 5%;
   height: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1);
   top: 0;
+  margin: 0;
+  padding-top: 20%;
+  box-sizing: border-box;
 }
 
 .controls:hover {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
+  color: rgba(245,255,250,0.5);
 }
 
 .next {
   right: 0;
+}
+
+.fa {
+  width: 50px;
+  font-size: 7em;
+  color: inherit;
+  padding:0 10px 0 10px;
+  position: relative;
 }
 
 .date {

@@ -81,10 +81,14 @@ class Calendar extends React.Component {
           <div>
             <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar</a>
             <div id="day-wrapper">
-              <div onClick={this.previousDay.bind(this)} className="controls previous">Previous</div>
+              <div onClick={this.previousDay.bind(this)} className="controls previous">
+                <i className="fa fa-angle-left"></i>
+              </div>
               <h1 className="date">{this.state.date}</h1>
               <img className="day-image" src={this.state.currentDay.image_url}/>
-              <div onClick={this.nextDay.bind(this)} className="controls next">Next</div>
+              <div onClick={this.nextDay.bind(this)} className="controls next">
+                <i className="fa fa-angle-right"></i>  
+              </div>
           </div>
         </div>
         )
