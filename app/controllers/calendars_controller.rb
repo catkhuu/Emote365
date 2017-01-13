@@ -37,6 +37,17 @@ class CalendarsController < ApplicationController
     render 'calendars/show'
   end
 
+  def destroy
+    # binding.pry
+    # Might need refactoring with rails/devise validation instead
+    # but for now it makes sure that users can only delete their own calendars
+    calendar = Calendar.find_by(id: params[:id]);
+    if current_user == calendar.user
+      calendar.destroy
+    end
+    redirect_to calendars_path
+  end
+
   private
 
   def find_and_ensure_calendar
