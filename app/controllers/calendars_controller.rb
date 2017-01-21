@@ -38,7 +38,6 @@ class CalendarsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     # Might need refactoring with rails/devise validation instead
     # but for now it makes sure that users can only delete their own calendars
     calendar = Calendar.find_by(id: params[:id]);
