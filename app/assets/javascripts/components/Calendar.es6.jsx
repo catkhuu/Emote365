@@ -79,7 +79,7 @@ class Calendar extends React.Component {
       if(this.state.currentDay){
         return(
           <div>
-            <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar</a>
+            <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar view</a>
             <div id="day-wrapper">
               <div onClick={this.previousDay.bind(this)} className="controls previous">
                 <i className="fa fa-angle-left"></i>
@@ -87,7 +87,7 @@ class Calendar extends React.Component {
               <h1 className="date">{this.state.date}</h1>
               <img className="day-image" src={this.state.currentDay.image_url}/>
               <div onClick={this.nextDay.bind(this)} className="controls next">
-                <i className="fa fa-angle-right"></i>  
+                <i className="fa fa-angle-right"></i>
               </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ class Calendar extends React.Component {
       } else {
         return(
           <div>
-            <a href="" onClick={this.handleToggle.bind(this)}>day</a>
+            <a href="" onClick={this.handleToggle.bind(this)}>day view</a>
             {this.state.days.map((day,  i) => <DayView updateCurrentDay={this.updateCurrentDay.bind(this)} key={i} day={day}/>)}
           </div>
         )

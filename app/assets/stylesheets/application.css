@@ -48,7 +48,7 @@ body {
  	background: white;
   font-size: 1.3em;
   font-weight: bold;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.7);
  	width:100%;
  	height: 50px;
  	position:absolute;
@@ -76,22 +76,22 @@ body {
   text-align: center;
   width: 80%;
   margin-left: 10%;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5), -2px -2px 2px rgba(0,0,0,0.5);
 }
 
 .home-description {
+  text-indent: 5%;
   line-height: 1.4em;
   color: white;
   font-size: 1.7em;
   font-weight: 800;
   margin: 0 15% 0 15%;
   font-family: 'Cutive Mono', monospace;
-}
-
-.home-description {
-  text-indent: 5%;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5), -2px -2px 2px rgba(0,0,0,0.5);
 }
 
 nav a {
+  text-shadow: 5px 5px 2px rgba(0,0,0,0.7);
   font-size: 1.3em;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
@@ -101,8 +101,10 @@ nav a {
 }
 
 nav a:hover {
-  padding-bottom: 3px;
-  border-bottom: 2px solid white;
+  /*padding-bottom: 3px;*/
+  /*border-bottom: 2px solid white;*/
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  transition: padding .3s, text-shadow .3s, transform .3s;
 }
 
 nav a:active, .home-description a:active {
@@ -196,7 +198,7 @@ ul {
 #footer a {
   display: inline-block;
   padding-top: 10px;
-  color: rgba(0,0,0, 0.3);
+  color: rgba(0,0,0, 0.5);
   font-family: 'Cutive Mono';
   text-decoration: none;
 }
