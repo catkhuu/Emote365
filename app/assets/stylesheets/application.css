@@ -21,6 +21,7 @@
 
 html,
 body {
+  width: 100%;
   margin:0;
   padding:0;
   height:100%;
@@ -36,6 +37,7 @@ body {
 }
 #content {
  	padding-bottom:200px;
+  width: 100%;
 }
 #footer {
  	background: #E5F2C9;
@@ -125,4 +127,57 @@ ul {
   font-size: 10px;
   letter-spacing: 1.5px;
   color: rgba(0,0,0, 0.3);
+}
+
+.calendar-image {
+  display: inline-block;
+  float: left;
+  height: 180px;
+  width: 250px;
+}
+
+.day-image {
+  display: block;
+  width: 100%;
+}
+
+.controls {
+  color: rgba(245,255,250,0.2);
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.1);
+  top: 0;
+  margin: 0;
+  padding-top: 20%;
+  box-sizing: border-box;
+}
+
+.controls:hover {
+  background-color: rgba(0,0,0,0.3);
+  color: rgba(245,255,250,0.5);
+}
+
+.next {
+  right: 0;
+}
+
+.fa {
+  width: 50px;
+  font-size: 7em;
+  color: inherit;
+  padding:0 10px 0 10px;
+  position: relative;
+}
+
+.date {
+  position: absolute;
+  margin: 2% 0 0 5%;
+  color: white;
+  font-family: 'Cutive Mono'
+}
+
+#day-wrapper {
+  height: 100%;
+  position: relative;
 }

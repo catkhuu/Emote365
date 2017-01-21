@@ -33,6 +33,16 @@ class Calendar extends React.Component {
 
   handleToggle(event){
     event.preventDefault();
+    if(this.state.currentDay){
+      this.setState({
+        currentDay: null
+      })
+    } else {
+      this.setState({
+        currentDay: this.state.days[this.state.days.length - 1]
+      })
+    }
+
   }
 
   updateCurrentDay(newDay){
@@ -41,22 +51,52 @@ class Calendar extends React.Component {
     })
   }
 
+  nextDay(){
+    let dayId = this.state.currentDay.id;
+    let newDay = {};
+    for(var index in this.state.days){
+      if(this.state.days[index].id === dayId + 1){
+        newDay = this.state.days[index];
+        this.updateCurrentDay(newDay);
+        this.getDate(newDay);
+      }
+    }
+  }
+
+  previousDay(){
+    let dayId = this.state.currentDay.id;
+    let newDay = {};
+    for(var index in this.state.days){
+      if(this.state.days[index].id === dayId - 1){
+        newDay = this.state.days[index];
+        this.updateCurrentDay(newDay);
+        this.getDate(newDay);
+      }
+    }
+  }
+
   render(){
       if(this.state.currentDay){
         return(
           <div>
             <a onClick={this.handleToggle.bind(this)} href='calendar'>calendar</a>
-            <h1>{this.state.date}</h1>
-            <img src={this.state.currentDay.image_url}/>
+            <div id="day-wrapper">
+              <div onClick={this.previousDay.bind(this)} className="controls previous">
+                <i className="fa fa-angle-left"></i>
+              </div>
+              <h1 className="date">{this.state.date}</h1>
+              <img className="day-image" src={this.state.currentDay.image_url}/>
+              <div onClick={this.nextDay.bind(this)} className="controls next">
+                <i className="fa fa-angle-right"></i>  
+              </div>
           </div>
+        </div>
         )
       } else {
         return(
           <div>
-            {this.state.days.map(function(day, index){
-
-            })}
             <a href="" onClick={this.handleToggle.bind(this)}>day</a>
+            {this.state.days.map((day,  i) => <DayView updateCurrentDay={this.updateCurrentDay.bind(this)} key={i} day={day}/>)}
           </div>
         )
       }

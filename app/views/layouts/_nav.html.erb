@@ -9,6 +9,7 @@
     <div class="col-md-8">
       <% if user_signed_in? %>
         <a href="#">profile</a>
+        <%= link_to "calendars", calendars_path, method: :get%>
         <%= link_to "sign out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "sign in", new_user_session_path, method: :get %>

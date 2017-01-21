@@ -1,6 +1,10 @@
 <h1>Calendar list:</h1>
 <% if @calendars %>
   <% @calendars.each do |calendar| %>
-    <div>calendar.name</div>
+    <div>
+      <a href="/calendars/<%= calendar.id %>"><%= calendar.name %></a>
+      <br>
+      <%= link_to "Delete calendar", calendar,method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   <% end %>
 <% end %>
