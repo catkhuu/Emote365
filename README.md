@@ -20,6 +20,7 @@ Instead of trying to remember everything that happened in a year, the user can s
 - Implement Cron/Heroku Scheduler for when this gets deployed 
 - Deploy to Heroku
 - Host images with AWS
+- Fix how current location and WOEID is retrieved and calculated 
 
 ## Technologies: 
 - Rails 
@@ -29,8 +30,10 @@ Instead of trying to remember everything that happened in a year, the user can s
 - Twitter API
 - Pexels API
 - IBM Alchemy API
+- Yahoo! WOEID API
+- Google Maps Geocoding API
 
 ## Collaborators:
 
-[Catherine Khuu](http://www.github.com/catkhuu)
-[Roman Leyvtskyy](http://www.github.com/LevytsRoman)
+- [Catherine Khuu](http://www.github.com/catkhuu)
+- [Roman Leyvtskyy](http://www.github.com/LevytsRoman)
